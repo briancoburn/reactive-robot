@@ -1,45 +1,29 @@
-
-
-
-// let observers = []
-// let gData = {}
-// function addObserver(ob){
-//   if(!observers.find((it)=>{return it===ob})){
-//     observers.push(ob)
-//   }
-// }
-// function removeObserver(ob){
-//   let index = observers.indexOf(ob)
-//   if(index > -1){
-//     observers.splice(index,1)
-//   }
-// }
-// function next(event){
-//   observers.forEach((ob)=>{
-//     ob(event)
-//   })
-// }
-//
-// export {observers,gData,addObserver,removeObserver,next}
-
-export let observers = []
-export let gData = {}
-export function addObserver(ob){
-  if(!observers.find((it)=>{return it===ob})){
-    observers.push(ob)
+let observers = {}
+let gData = {}
+let isDebug = {}
+let ReactiveRobot = {
+  observers:observers,
+  gData:gData,
+  isDebug: isDebug,
+  addObserver: (key, observerFunction)=>{
+    observers[key] = observerFunction
+  },
+  removeObserver: (key)=>{
+    observers[key] = null
+    delete observers[key]
+  },
+  next: (event)=>{
+    if(isDebug){
+      console.log('rr::next()==>event.type:'+event.type+', event.data:', event.data)
+    }
+    for(let j in observers){
+      if(typeof observers[j]==='function'){
+        observers[j](event)
+      }
+    }
+  },
+  debug: ()=>{
+    isDebug = true
   }
 }
-export function removeObserver(ob){
-  let index = observers.indexOf(ob)
-  if(index > -1){
-    observers.splice(index,1)
-  }
-}
-export function next(event){
-  observers.forEach((ob)=>{
-    ob(event)
-  })
-}
-
-//export {observers,gData,addObserver,removeObserver,next}
-
+export default ReactiveRobot
