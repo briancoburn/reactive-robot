@@ -1,6 +1,6 @@
 let observers = {}
 let gData = {}
-let isDebug = {}
+let isDebug = false
 let ReactiveRobot = {
   observers:observers,
   gData:gData,
