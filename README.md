@@ -42,7 +42,7 @@ a user object. The user enters their data, and they want to send that to an api.
 'user.create' or 'user.update'. When the server returns a successful PATCH for an update, the resulting event might logically
 be 'user.updated', or if it failed, 'user.update.failed' - but if you have too many event types that are too hard to remember, 
 it might make sense to put your event types into a constants file. This is up to you. In general, if your event types
-follow the convention of <thing>.<action>.<result> as above, your events will be self-documenting.
+follow the convention of thing.action.result as above, your events will be self-documenting.
 
 Some UI frameworks may internally implement top-down observables or providers, and in this case you may need to
 use memoization with reactive-robot if you have performance or rendering issues that are outside of what reactive-robot 
