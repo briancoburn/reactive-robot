@@ -101,7 +101,7 @@ export default Component1;
 
 ```
 
-//Component12.js
+//Component2.js
 ```jsx
 import {useEffect} from "react";
 import rr from 'reactive-robot'
