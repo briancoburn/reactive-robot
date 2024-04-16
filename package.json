@@ -1,6 +1,6 @@
 {
   "name": "reactive-robot",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "./reactive-robot.ts",
   "module": "./ReactiveRobot.mjs"
 }
