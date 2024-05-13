@@ -1,4 +1,5 @@
-type ObserverFunctionType = (name:string)=>void
+export type ObjectDataType<T> = Record<string, T>
+export type ObserverFunctionType = <T>(name:string, data:ObjectDataType<T>)=>void
 const observers = {} as Record<string, ObserverFunctionType>
 const rr = {
     addObserver: (key:string, observerFunction:ObserverFunctionType) => {
@@ -7,9 +8,9 @@ const rr = {
     removeObserver: (key:string) => {
         delete observers[key];
     },
-    next: (name:string) => {
+    next: <T>(name:string, data?:ObjectDataType<T>) => {
         for (const j in observers) {
-            observers[j](name)
+            observers[j](name, data || {})
         }
     },
 }

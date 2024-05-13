@@ -1,6 +1,7 @@
 {
   "name": "reactive-robot",
-  "version": "4.0.0",
+  "version": "5.0.1",
   "main": "./reactive-robot.ts",
-  "module": "./ReactiveRobot.mjs"
+  "module": "./ReactiveRobot.mjs",
+  "author": "Brian Coburn"
 }
